@@ -21,10 +21,21 @@ void main() {
       Map<String, List<String>> randomTeam;
       try {
         randomTeam = players.getRondomTeam(int.parse(message[1]));
-        e.message.channel.send(content: randomTeam.toString());
+        e.message.channel.send(embed: makeEmbed(randomTeam));
       } catch (e) {
-      e.message.channel.send(content: 'Error');
+        e.message.channel.send(content: 'Error');
       }
     }
   });
+}
+
+EmbedBuilder makeEmbed(Map<String, List<String>> randomTeam) {
+  EmbedBuilder embed = (EmbedBuilder()
+    ..title = "random team"
+    ..color = DiscordColor.fromInt(13369286));
+  randomTeam.forEach((key, value) => embed.addField(
+      name: key,
+      content: value.isNotEmpty ? ' ' + value.join(', ') : '👻',
+      inline: true));
+  return embed;
 }
