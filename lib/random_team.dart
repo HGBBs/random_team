@@ -1,4 +1,4 @@
-class Player {
+class Players {
   List<String> teamNameList = [
     '🐯 team',
     '🦍 team',
@@ -29,7 +29,7 @@ class Player {
     '🦊 team',
   ];
   List<String> players;
-  Player(this.players);
+  Players(this.players);
 
   Map<String, List<String>> getRondomTeam(int teamNum) {
     int fill = players.length % teamNum;

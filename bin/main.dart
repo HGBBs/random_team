@@ -17,7 +17,7 @@ void main() {
       List<String> users = channel.connectedUsers
           .map((voiceState) => voiceState.user.username)
           .toList();
-      Player players = Player(users);
+      Players players = Players(users);
       Map<String, List<String>> randomTeam;
       try {
         randomTeam = players.getRondomTeam(int.parse(message[1]));
